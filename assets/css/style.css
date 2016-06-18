@@ -1,0 +1,36 @@
+body { background: url(../images/bg-daytrip.jpg);
+           background-size:110em;
+     }
+
+    .jumbotron {
+    	    margin-top:80px;
+    	    /*opacity:0.34;*/
+            background: rgba(255, 255, 255, 0.7); 
+    	   
+    	    
+    } 
+
+    .panel-body{
+    	max-width:50%;
+    	margin:20px auto;
+
+    }
+    #timer{
+    	text-align:center;
+    	font-family:'PT Sans';
+    	font-size:2em;
+    }
+    .question{
+    	font-family:'PT Sans';
+    	font-size:2.3em;
+    	color:#000;
+    }
+    .choices{
+    	font-family:'PT Sans';
+    	font-size:2em;
+
+    }
+    .choices:hover .choices:focus, .choices:active {
+    	  -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
