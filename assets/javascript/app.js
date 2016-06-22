@@ -56,7 +56,7 @@ $( document ).ready(function() {
 						      //------dataType solve console errer: Node cannot be inserted at the specified point in the hierarchy
 						                 dataType:'html',
 						                  success: function(response){
-						                   // console.log('response', response);
+						                   console.log('response------------------------------', response);
 						      //-----------for loop the event result out------
 						                    var result = response.events;
 						                    for (var i=0; i<6; i++){
