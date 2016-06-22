@@ -7,3 +7,36 @@
 	width:500;
 	height:380;
 }
+
+
+.jumbotron {
+	color: #ffcc99;
+	height: 450px;
+  background-image:url('../images/bg-daytrip.jpg');
+  background-size: cover;
+  background: contain;
+    
+}
+
+.header {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	text-align: left;
+	margin-left: 30px;
+	color: #ffcc99;
+}
+
+#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}

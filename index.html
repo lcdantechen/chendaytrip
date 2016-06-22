@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Plan your day trip</title>
-	
+  <title>Plan your day trip</title>
+  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700italic' rel='stylesheet' type='text/css'>
@@ -11,13 +11,75 @@
 
 </head>
 <body>
+ <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Company Name</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>                    
+                </ul>
+            </li>
+        </ul>
+        <div class="col-sm-3 col-md-3 pull-right">
+            <div class="btn-toolbar">
+			        <div class="btn-group">
+			          <button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">1000ms Delay <b class="caret"></b></button>
+			          <ul class="dropdown-menu">
+			            <li><a tabindex="-1" href="#">Why Would</a></li>
+			            <li><a tabindex="-1" href="#">A Home Tab</a></li>
+			            <li><a tabindex="-1" href="#">Have Dropdowns?</a></li>
+			          </ul>
+			        </div>
+        </div>        
+    </div>
+</nav>
+
+
+
+
+ <div class="jumbotron">
+      <h1 class="header">On the Road Again</h1>
+      <p class="header">For the Random Day Tripper!</p>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" id="cityName" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button id="citySearch" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+      
+ </div>
+
  <div class="container">
   <div class="card-columns">
     <div id="events"></div>
   </div>
 
  </div>
-
 
 <div id="map" style="width:500px;height:380px;"></div>
 
@@ -29,5 +91,10 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_QqQDUBcPb1Ec_9iEyLDyYc3rNXMtWgg&callback=showLocation">
 </script>
+
+<!-- 11111111111111111111111111111111111111111111111 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- 11111111111111111111111111111111111111111111111 -->
 </body>
 </html>
