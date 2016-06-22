@@ -29,11 +29,12 @@ $("#citySearch").on("click", function() {
 						      //------dataType solve console errer: Node cannot be inserted at the specified point in the hierarchy
 						                 dataType:'json',
 						                  success: function(response){
+						                  	$('#events').empty();
 						                  	console.log('success')
 						                   console.log('response------------------------------', response);
 						      //-----------for loop the event result out------
 						                    var result = response.events;
-                            for (var i=0; i<20; i++){
+                            for (var i=0; i<30; i++){
                               console.log(result[i]);
                               var eventDiv = $('<div>');
                               eventDiv.addClass('card');
@@ -59,10 +60,13 @@ $("#citySearch").on("click", function() {
                               eventDiv.append(eventImg);
                               eventDiv.append(eventIntro);
 
-                              var eventDiv2 = $('<div>');
-                              eventDiv2.append(eventDiv);
-                              $('#events').html(eventDiv2);
+                              
+                              console.log('response------------------------------------------');
+                              
+                              /*$('#events').html(eventDiv2);*/
+                              $('#events').prepend(eventDiv);
                               }
+                             
 						      // -------Loop ends ----------
 
 						                 }
@@ -91,9 +95,7 @@ $("#citySearch").on("click", function() {
 											                      };
 											   var map = new google.maps.Map(document.getElementById('map'),mapProp);
 
-											  // Construct the circle for each value in citymap.
-											  // Note: We scale the area of the circle based on the population.
-											  
+							
 											 
 											    var cityCircle = new google.maps.Circle({
 											                      center:mapProp.center,
@@ -135,7 +137,7 @@ $("#citySearch").on("click", function() {
                               var introTitle = $('<h4>');
                               introTitle.addClass('card-title');
                               introTitle.text(result[i].name.text);
-                              
+
                               var startTime = result[i].start.local;
                               var introText = $('<p>');
                               introText.addClass('card-text');
