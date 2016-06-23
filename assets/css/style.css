@@ -4,20 +4,32 @@
 }
 
 #map{
-	width:500;
-	height:380;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index: 0;
 }
 
+.glyphicon-search{
+	z-index: 3;
+}
 
+.mapDiv{
+	position:relative;
+	height:250px;
+}
 .jumbotron {
 	color: #ffcc99;
 	height: 450px;
   background-image:url('../images/bg-daytrip.jpg');
   background-size: cover;
   background: contain;
+  z-index: 0;
     
 }
-
+.eventContainer{
+	margin-top:30px;
+}
 .header {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	text-align: left;

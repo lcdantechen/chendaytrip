@@ -12,27 +12,30 @@ $("#citySearch").on("click", function() {
 				   var geocoder =  new google.maps.Geocoder();
            geocoder.geocode( { 'address': name}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
-            alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng()); 
+            console.log("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng()); 
           } else {
-            alert("Something got wrong " + status);
+            console.log("Something got wrong " + status);
           }
 
-			          var latitude = results[0].geometry.location.lat();
-								var longitude = results[0].geometry.location.lng();
-                 console.log("Latitude : " + latitude + " Longitude: " + longitude);
-						            //eventbrite use latitude and longitude
+			    var latitude = results[0].geometry.location.lat();
+					var longitude = results[0].geometry.location.lng();
+          console.log("Latitude : " + latitude + " Longitude: " + longitude);
+//Change the map-----------------------
+          showUserLocation();
+
+//eventbrite use latitude and longitude
 						                var eventBriteUrl = "https://www.eventbriteapi.com/v3/";
 						                var token = "OO4THRQ4RMB522E4DLLG";
 						                $.ajax({
 						                  type: "GET",
 						                  url: eventBriteUrl + "events/search/?location.within=100km&location.latitude="+latitude+"&location.longitude="+longitude+"&token="+token,
-						      //------dataType solve console errer: Node cannot be inserted at the specified point in the hierarchy
+//------dataType solve console errer: Node cannot be inserted at the specified point in the hierarchy
 						                 dataType:'json',
 						                  success: function(response){
 						                  	$('#events').empty();
 						                  	console.log('success')
 						                   console.log('response------------------------------', response);
-						      //-----------for loop the event result out------
+//-----------for loop the event result out------
 						                    var result = response.events;
                             for (var i=0; i<30; i++){
                               console.log(result[i]);
@@ -62,8 +65,7 @@ $("#citySearch").on("click", function() {
 
                               
                               console.log('response------------------------------------------');
-                              
-                              /*$('#events').html(eventDiv2);*/
+                             
                               $('#events').prepend(eventDiv);
                               }
                              
@@ -76,9 +78,63 @@ $("#citySearch").on("click", function() {
 
 
 
-        });
+         });
 						   
 });
+//---get the location for google map after user serach ------------------------------------------------------------------------
+              function showUserLocation() {
+						               var name = $('#cityName').val();
+												   var geocoder =  new google.maps.Geocoder();
+								           geocoder.geocode( { 'address': name}, function(results, status) {
+											           if (status == google.maps.GeocoderStatus.OK) {
+											            console.log("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng()); 
+											          } else {
+											            console.log("Something got wrong " + status);
+											          }
+
+														          var latitude = results[0].geometry.location.lat();
+																			var longitude = results[0].geometry.location.lng();
+			                  //------google map --------//
+			                  
+			                         var mapProp = {
+														                      center:{lat: latitude, lng: longitude},
+														                      zoom:8,
+														                      mapTypeId:google.maps.MapTypeId.ROADMAP
+														                      };
+														   var map = new google.maps.Map(document.getElementById('map'),mapProp);
+
+										
+														 
+														    var cityCircle = new google.maps.Circle({
+														                      center:mapProp.center,
+														                      radius:50000,
+														                      strokeColor:"#0000FF",
+														                      strokeOpacity:0.5,
+														                      strokeWeight:2,
+														                      fillColor:"#0000FF",
+														                      fillOpacity:0.4
+
+														                      });
+														      cityCircle.setMap(map);
+											   });
+
+              }
+
+
+           /*   function getUserLocation(){
+
+						            if(navigator.geolocation){
+						               // timeout at 60000 milliseconds (60 seconds)
+						               var options = {timeout:60000};
+						               navigator.geolocation.getCurrentPosition(showUserLocation, errorHandler, options);
+						            }
+						            
+						            else{
+						               alert("Sorry, browser does not support geolocation!");
+						            }
+						         }*/
+
+//---------------------------------------------------------------------------
 
 
 //---------------------------------------------------------------------------
@@ -107,7 +163,7 @@ $("#citySearch").on("click", function() {
 											                      fillOpacity:0.4
 
 											                      });
-											      cityCircle.setMap(map);
+											    cityCircle.setMap(map);
 
 
 
