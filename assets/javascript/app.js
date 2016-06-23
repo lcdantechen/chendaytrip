@@ -1,8 +1,8 @@
 
-$( document ).ready(function() {
-    console.log( "ready!" );
+
+           
               
-            getLocation();
+      //getLocation();
 			
 //-on lick funciton that converts city name to location ------------------------------------------------------------------------
 
@@ -83,6 +83,7 @@ $("#citySearch").on("click", function() {
 });
 //---get the location for google map after user serach ------------------------------------------------------------------------
               function showUserLocation() {
+              						console.log('in show user location');
 						               var name = $('#cityName').val();
 												   var geocoder =  new google.maps.Geocoder();
 								           geocoder.geocode( { 'address': name}, function(results, status) {
@@ -140,6 +141,7 @@ $("#citySearch").on("click", function() {
 //---------------------------------------------------------------------------
 						//geolocation functions 
 						function showLocation(position) {
+							console.log('in show location');
 						            var latitude = position.coords.latitude;
 						            var longitude = position.coords.longitude;
                   //------google map --------//
@@ -228,8 +230,8 @@ $("#citySearch").on("click", function() {
 						            }
 						         }
 						      
-						         function getLocation(){
-
+						         function getLocation() {
+						         	console.log('in getLocation');
 						            if(navigator.geolocation){
 						               // timeout at 60000 milliseconds (60 seconds)
 						               var options = {timeout:60000};
@@ -242,7 +244,4 @@ $("#citySearch").on("click", function() {
 						         }
 
 						         
-                 
-
-
-});
+                
