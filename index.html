@@ -17,7 +17,7 @@
     </div>
 
 <!-- *************************************** -->
-<div class="container">
+<div class="container" ng-controller="loginCtrl as loginCtrl">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info" >
             <div class="panel-heading">
@@ -72,20 +72,20 @@
                     <div class="form-group">
                         <label for="email"  class="col-md-3 control-label">Email</label>
                         <div class="col-md-9">
-                            <input type="text"class="form-control" ng-model="loginCtl.email" name="email" placeholder="Email Address">
+                            <input required type="text"class="form-control" ng-model="loginCtrl.email" name="email" placeholder="Email Address">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password"   class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" ng-model="loginCtl.password" name="passwd" placeholder="Password">
+                            <input required type="password" class="form-control" ng-model="loginCtrl.password" name="passwd" placeholder="Password">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-md-offset-3 col-md-9">
-                            <button  id="btn-signup" type="button" class="btn btn-info" ng-click="loginCtl.signUp()" > &nbsp Sign Up</button>
+                            <button  id="btn-signup" type="submit" class="btn btn-info" ng-click="loginCtrl.signUp()" > &nbsp Sign Up</button>
 
                         </div>
                     </div>

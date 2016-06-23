@@ -4,10 +4,15 @@
 
 
             angular.module('eventApp').controller('loginCtrl', ['FBMSG', function(FBMSG){
-                
+                console.log('in controller');
+
+
+
                 var self = this;
                 var ref = new Firebase(FBMSG);
                 self.signUp = function() {
+                console.log('in signup function', self.email, self.password);
+
                 ref.createUser({
                     email: self.email ,
                     password: self.password
