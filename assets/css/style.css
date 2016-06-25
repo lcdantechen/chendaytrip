@@ -7,6 +7,9 @@ body{
 .navbar{
 	margin-bottom: 0px;
 	border:none;
+	height:75px;
+
+
 
 }
 .btn-group{
@@ -73,4 +76,14 @@ body{
 .stylish-input-group button{
     border:0;
     background:transparent;
+}
+.footer
+{
+	font-family: 'Arial';
+	color: #fff;
+	background: #378037;
+	padding: 1em 1.25em;
+	text-align:center;
+	height:70px;
+	border-top: thick solid  #4aaaa5
 }

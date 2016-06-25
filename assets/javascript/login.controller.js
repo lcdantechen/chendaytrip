@@ -31,4 +31,25 @@
                     }
                 });
                 }
+/***********Login****************/
+                self.login = function () {
+                console.log('in login function', self.email, self.password);
+
+                ref.authUser({
+                        email: self.loginEmail, 
+                        password: self.loginPassword
+                 }, function(error, userData) {
+                     if (error) {
+                        console.log("Error logging in", error);
+                     } else {
+                         console.log("User Successfully logged in with uid: ", authData.uid)
+                         
+                        }
+                        ref.set({users: user})
+
+                    /*}*/
+                
+                  });
+                }
+/***********Login****************/
             }])
