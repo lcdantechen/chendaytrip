@@ -2,7 +2,7 @@
 
            var latitude;
            var longitude;
-           var travelRadius;
+           var travelRadius = 50;
            $('.dropdown-toggle').dropdown();
      
 //-on lick funciton that change the travelRadius ------------------------------------------------------------------------
