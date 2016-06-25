@@ -364,7 +364,7 @@ $("#citySearch").on("click", function() {
 					              //Key   Name    
 					              var key = '8c4780c9e659aef56df47f09d2ecf1c6';
 					              //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}
-					              var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
+					              var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
 					              console.log(queryURL);
 					              $.ajax({url: queryURL, method:'GET' })
 					              .done(function(mweather) {
@@ -517,7 +517,7 @@ $("#citySearch").on("click", function() {
 					              //Key   Name    
 					              var key = '8c4780c9e659aef56df47f09d2ecf1c6';
 					              //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}
-					              var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
+					              var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
 					              console.log(queryURL);
 					              $.ajax({url: queryURL, method:'GET' })
 					              .done(function(mweather) {
