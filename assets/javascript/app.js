@@ -144,7 +144,71 @@ $("#citySearch").on("click", function() {
           showUserLocation();
 
 //eventbrite use latitude and longitude
-				  eventsBrite();
+				  /*eventsBrite();*/
+				  var eventBriteUrl = "https://www.eventbriteapi.com/v3/";
+										                var token = "OO4THRQ4RMB522E4DLLG";
+										                $.ajax({
+										                  type: "GET",
+										                  url: eventBriteUrl + "events/search/?location.within=50km&location.latitude="+latitude+"&location.longitude="+longitude+"&token="+token,
+				//------dataType solve console errer: Node cannot be inserted at the specified point in the hierarchy
+										                 dataType:'json',
+										                  success: function(response){
+										                  	$('#events').empty();
+										                  	console.log('success')
+										                   console.log('response------------------------------', response);
+				//-----------for loop the event result out------
+										                  var result = response.events;
+				                              for (var i=0; i<40; i++){
+				                              console.log(result[i]);
+				                              var eventDiv = $('<div>');
+				                              eventDiv.addClass('card');
+				                              var eventIntro = $('<p>');
+				                              eventIntro.addClass('card-block');
+
+				                              var introTitle = $('<h4>');
+				                              introTitle.addClass('card-title');
+				                              introTitle.text(result[i].name.text);
+				                              
+				                              
+																			/*var addText = $('<p>');
+																			addText.addClass('card-text');
+																			addText.html(result[i].venue.address.address_1 + "<br/>" + result[i].venue.address.city );
+*/
+				                              var startTime = result[i].start.local;
+				                              var introText = $('<p>');
+				                              introText.addClass('card-text');
+				                              introText.text(moment(startTime).format('dddd MMMM Do, hh:mm a'));
+
+
+				                              var eventImg = $('<img>');
+				                              eventImg.addClass('card-img-top');
+				                              eventImg.attr('src', result[i].logo.url)
+
+				                              var eventurl = $('<a/>');
+																			eventurl.addClass('card-link');
+																			eventurl.text(result[i].vanity_url);
+																			eventurl.attr('href', result[i].url);
+
+				                              eventIntro.append(introTitle);
+				                              eventIntro.append(introText);
+				                              /*eventIntro.append(addText);*/
+					                            eventIntro.append(eventurl);
+				                              eventDiv.append(eventImg);
+				                              eventDiv.append(eventIntro);
+
+				                              
+				                              console.log('response------------------------------------------');
+				                             
+				                              $('#events').prepend(eventDiv);
+				                              }
+				                             
+										      // -------Loop ends ----------
+
+										                 }
+										                  
+										              });
+										   
+
 						   
 
 
