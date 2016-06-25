@@ -29,6 +29,7 @@ $(".travel20").on("click", function() {
 
 				//eventbrite use latitude and longitude
 				          eventsBrite();
+				          weather();
 										                
 
 				         });
@@ -57,6 +58,7 @@ $(".travel30").on("click", function() {
 
 				//eventbrite use latitude and longitude
 									eventsBrite();
+									 weather();
 
 
 				         });
@@ -86,6 +88,7 @@ $(".travel40").on("click", function() {
 
 				//eventbrite use latitude and longitude
 								  eventsBrite();
+								   weather();
 										   
 
 
@@ -116,6 +119,7 @@ $(".travel50").on("click", function() {
 
 				//eventbrite use latitude and longitude
 								  eventsBrite();
+								   weather();
 										   
 
 
@@ -142,6 +146,7 @@ $("#citySearch").on("click", function() {
           console.log("Latitude : " + latitude + " Longitude: " + longitude);
 //Change the map-----------------------
           showUserLocation();
+           weather();
 
 //eventbrite use latitude and longitude
 				  /*eventsBrite();*/
@@ -352,6 +357,61 @@ $("#citySearch").on("click", function() {
 										                 }
 										                  
 										              });
+										 /***********************************/
+										               console.log('in weather function');
+					              console.log(latitude);
+					              console.log(longitude);
+					              //Key   Name    
+					              var key = '8c4780c9e659aef56df47f09d2ecf1c6';
+					              //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}
+					              var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
+					              console.log(queryURL);
+					              $.ajax({url: queryURL, method:'GET' })
+					              .done(function(mweather) {
+					                  console.log(mweather);
+					                  for (var weatherIndex = 0; weatherIndex<1; weatherIndex++){
+					                      var weather1 = mweather.list[weatherIndex].temp.day;
+					                      /*var weather1Description = mweather.list[weatherIndex].weather[weatherIndex].description;*/
+					                      var weatherIcon = mweather.list[weatherIndex].weather[weatherIndex].icon;
+					                      var weatherDay = mweather.list[weatherIndex].temp.day;
+					                      var weatherNight = mweather.list[weatherIndex].temp.night;
+					                      var weatherURL = 'http://openweathermap.org/img/w/' + weatherIcon +'.png'; 
+					                      var weatherUDate = mweather.list[weatherIndex].dt;
+					                      //var weatherDate = moment("/Date(weatherUDate)/");
+					                      console.log('weather', weather1);
+					                      /*console.log('description', weather1Description);*/
+					                      console.log('icon', weatherIcon);
+					                      console.log('Day', weatherDay);
+					                      console.log('night', weatherNight);
+					                      console.log('image url', weatherURL);
+					                      console.log(weatherIndex);
+					                      var weatherImage = $('<img>');
+					                      weatherImage.attr('src', weatherURL);
+					                      /*var weatherDes = $('<p>');
+					                      weatherDes.text(weather1Description);*/
+					                      var weatherD = $('<p>');
+					                       weatherD.text('Day: '+ weatherDay + 'F');
+					                      var weatherN= $('<p>');
+					                      weatherN.text('Night: ' + weatherNight + 'F');
+					            
+					                      var weathDiv = $('<div class="weatheritem">');
+					                      
+					                      weathDiv.append(weatherImage);
+					                      /*weathDiv.append(weatherDes);*/
+					                      weathDiv.append(weatherD);
+					                      weathDiv.append(weatherN);
+					                      console.log(weathDiv);
+					                      $('.weatherShow').html(weathDiv);
+					           
+					           
+					                  }
+					              });         
+
+
+
+
+										 /***********************************/
+						   
 						   
 						         };
 
@@ -448,6 +508,58 @@ $("#citySearch").on("click", function() {
 
 
 						         };
+
+						         function weather () {
+					            
+					              console.log('in weather function');
+					              console.log(latitude);
+					              console.log(longitude);
+					              //Key   Name    
+					              var key = '8c4780c9e659aef56df47f09d2ecf1c6';
+					              //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}
+					              var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&cnt=" + 16 + '&units=imperial&APPID=' + key;
+					              console.log(queryURL);
+					              $.ajax({url: queryURL, method:'GET' })
+					              .done(function(mweather) {
+					                  console.log(mweather);
+					                  for (var weatherIndex = 0; weatherIndex<1; weatherIndex++){
+					                      var weather1 = mweather.list[weatherIndex].temp.day;
+					                      /*var weather1Description = mweather.list[weatherIndex].weather[weatherIndex].description;*/
+					                      var weatherIcon = mweather.list[weatherIndex].weather[weatherIndex].icon;
+					                      var weatherDay = mweather.list[weatherIndex].temp.day;
+					                      var weatherNight = mweather.list[weatherIndex].temp.night;
+					                      var weatherURL = 'http://openweathermap.org/img/w/' + weatherIcon +'.png'; 
+					                      var weatherUDate = mweather.list[weatherIndex].dt;
+					                      //var weatherDate = moment("/Date(weatherUDate)/");
+					                      console.log('weather', weather1);
+					                      /*console.log('description', weather1Description);*/
+					                      console.log('icon', weatherIcon);
+					                      console.log('Day', weatherDay);
+					                      console.log('night', weatherNight);
+					                      console.log('image url', weatherURL);
+					                      console.log(weatherIndex);
+					                      var weatherImage = $('<img>');
+					                      weatherImage.attr('src', weatherURL);
+					                      /*var weatherDes = $('<p>');
+					                      weatherDes.text(weather1Description);*/
+					                      var weatherD = $('<p>');
+					                       weatherD.text('Day: '+ weatherDay + 'F');
+					                      var weatherN= $('<p>');
+					                      weatherN.text('Night: ' + weatherNight + 'F');
+					            
+					                      var weathDiv = $('<div class="weatheritem">');
+					                      
+					                      weathDiv.append(weatherImage);
+					                      /*weathDiv.append(weatherDes);*/
+					                      weathDiv.append(weatherD);
+					                      weathDiv.append(weatherN);
+					                      console.log(weathDiv);
+					                      $('.weatherShow').html(weathDiv);
+					           
+					           
+					                  }
+					              });         
+          }
 
 						         
                 
