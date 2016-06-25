@@ -1,6 +1,28 @@
+#deNav {
+	background:#fff;
+}
+body{
+	background-color:#E9E9E9;
+}
+.navbar{
+	margin-bottom: 0px;
+	border:none;
+
+}
+.btn-group{
+	margin-top:10px;
+}
+.group02{
+	float:right;
+	
+}
+
 .card-img-top{
 /*  width: 150px;*/
     max-width: 100%;
+}
+.navbar-header{
+	float:none;
 }
 
 #map{

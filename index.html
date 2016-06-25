@@ -11,107 +11,127 @@
 
 </head>
 <body>
- <nav class="navbar navbar-default" role="navigation">
+ <nav class="navbar" id="deNav" role="navigation">
+    
     <div class="navbar-header">       
-        <a class="navbar-brand" href="#">Day Trip</a>
-    </div>
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expandeds="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">stuff</span>
+            <span class="icon-bar">stuff</span>
+            <span class="icon-bar">stuff</span>
+        </button> -->
+          <p class="navbar-brand">
 
-<!-- *************************************** -->
-<div class="container" ng-controller="loginCtrl as loginCtrl">
-    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info" >
-            <div class="panel-heading">
-                <div class="panel-title">Sign In</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-            </div>
-            <div style="padding-top:30px" class="panel-body" >
-                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                <form id="loginform" class="form-horizontal" role="form">
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
-                    </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                    </div>
+          On the <br />Road Again
+            
+          </p>
+          
+         
+          <div class="btn-group group01">
+              <button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="700">User</button>
+              <ul class="dropdown-menu" >
+            
+<!-- ***the register part ************************************ -->
+                            <div class="container userhover" ng-controller="loginCtrl as loginCtrl">
+                            <div id="loginbox" style="margin-top:0px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" >
+                                <div class="panel panel-info" >
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Sign In</div>
+                                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                                    </div>
+                                    <div style="padding-top:30px" class="panel-body" >
+                                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                                        <form id="loginform" class="form-horizontal" role="form">
+                                            <div style="margin-bottom: 25px" class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                                            </div>
+                                            <div style="margin-bottom: 25px" class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                            </div>
 
-                    <div style="margin-top:10px" class="form-group">
-                        <!-- Button -->
-                        <div class="col-sm-12 controls">
-                            <a id="btn-login" href="#" class="btn btn-success">Login  </a>
+                                            <div style="margin-top:10px" class="form-group">
+                                                <!-- Button -->
+                                                <div class="col-sm-12 controls">
+                                                    <a id="btn-login" href="#" class="btn btn-success">Login  </a>
 
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                Don't have an account!
-                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                Sign Up Here
-                                </a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 control">
+                                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                                        Don't have an account!
+                                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                                        Sign Up Here
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Sign Up</div>
-                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
-            </div>
-            <div class="panel-body" >
-                <form id="signupform" class="form-horizontal" role="form">
-                    <div id="signupalert" style="display:none" class="alert alert-danger">
-                        <p>Error:</p>
-                        <span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"  class="col-md-3 control-label">Email</label>
-                        <div class="col-md-9">
-                            <input required type="text"class="form-control" ng-model="loginCtrl.email" name="email" placeholder="Email Address">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password"   class="col-md-3 control-label">Password</label>
-                        <div class="col-md-9">
-                            <input required type="password" class="form-control" ng-model="loginCtrl.password" name="passwd" placeholder="Password">
-                        </div>
-                    </div>
+                            <div id="signupbox" style="display:none; margin-top:0px; " >
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Sign Up</div>
+                                        <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                                    </div>
+                                    <div class="panel-body" >
+                                        <form id="signupform" class="form-horizontal" role="form">
+                                            <div id="signupalert" style="display:none" class="alert alert-danger">
+                                                <p>Error:</p>
+                                                <span></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email"  class="col-md-3 control-label">Email</label>
+                                                <div class="col-md-9">
+                                                    <input required type="text"class="form-control" ng-model="loginCtrl.email" name="email" placeholder="Email Address">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password"   class="col-md-3 control-label">Password</label>
+                                                <div class="col-md-9">
+                                                    <input required type="password" class="form-control" ng-model="loginCtrl.password" name="passwd" placeholder="Password">
+                                                </div>
+                                            </div>
 
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-md-offset-3 col-md-9">
-                            <button  id="btn-signup" type="submit" class="btn btn-info" ng-click="loginCtrl.signUp()" > &nbsp Sign Up</button>
+                                            <div class="form-group">
+                                                <!-- Button -->
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <button  id="btn-signup" type="submit" class="btn btn-info" ng-click="loginCtrl.signUp()" > &nbsp Sign Up</button>
 
-                        </div>
-                    </div>
+                                                </div>
+                                            </div>
 
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
 <!-- *************************************** -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
-        <div class="col-sm-3 col-md-3 pull-right">
-		          <div class="btn-toolbar">
-		            <div class="btn-group">
-					          <button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">Map<!-- <b class="caret"></b> --></button>
-					          <ul class="dropdown-menu">
-					            <!-- <div id="map" style="width:500px;height:380px;"></div> -->
-					          </ul>
-				        </div>
-				      </div>
-         </div>        
+              </ul>    
+           </div>
+         
+<!-- *********travel radius*************************** -->
+
+        <div class="btn-group group02">
+          <button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Travel Radius</button>
+          <ul class="dropdown-menu">
+            <li><a class="travel20" value=20 href="#">20 KM</a></li>
+            <li><a class="travel30" value=30 href="#">30 KM</a></li>
+            <li><a class="travel40" value=40 href="#">40 KM</a></li>
+            <li><a class="travel50" value=50 href="#">50 KM</a></li>    
+          </ul>
+        </div>
+
+<!-- ***************************************** -->
+
     </div>
+
+
+    
 </nav>
 
 
@@ -125,7 +145,7 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container"> 
                 <div class="input-group stylish-input-group">
-                    <input type="text" id="cityName" class="form-control"  placeholder="Search" >
+                    <input type="text" id="cityName" class="form-control"  placeholder="Citys To Explore" >
                     <span class="input-group-addon">
                         <button id="citySearch" type="submit">
                             <span class="glyphicon glyphicon-search"></span>
@@ -147,7 +167,7 @@
 
 <!-- script link for login 1111111111111111 -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script src='https://code.angularjs.org/1.4.3/angular-route.js'></script>
